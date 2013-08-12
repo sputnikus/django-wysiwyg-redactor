@@ -20,5 +20,7 @@ def redactor_upload(request, upload_to=None):
     for f in request.FILES.getlist("file"):
         path = os.path.join(upload_to or UPLOAD_PATH, f.name)
         real_path = default_storage.save(path, f)
-        images = {'filelink': os.path.join(settings.MEDIA_URL, real_path)}
-        return HttpResponse(json.dumps(images), mimetype="application/json")
+        return HttpResponse(
+            json.dumps(
+                {'filelink': os.path.join(settings.MEDIA_URL, real_path)}),
+            mimetype="application/json")
