@@ -23,6 +23,7 @@ class RedactorEditor(widgets.Textarea):
         js = (
             'redactor/jquery-2.0.3.min.js',
             'redactor/redactor.min.js',
+            'redactor/langs/cs.js',
         )
         css = {
             'all': (
